@@ -1,6 +1,45 @@
 body {
-    padding: 0 200px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
 }
-a {
-    margin: 20px;
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+    background: #fff;
+}
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+.social {
+    text-align: center;
+    margin: 10px 0;
+}
+.social a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 10px;
+}
+section {
+    margin: 20px 0;
+}
+section h2 {
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+ul li {
+    margin: 5px 0;
 }
