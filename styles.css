@@ -32,7 +32,7 @@ header h1 {
 .summary {
     display: flex;
     align-items: center;
-    margin: 20px 0;
+    margin: 20px 30px;
 }
 .summary img {
     width: 200px; 
