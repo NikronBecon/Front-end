@@ -45,10 +45,11 @@ header h1 {
     flex-wrap: wrap; 
 }
 .project1 {
-    width: 200px;
+    width: 450px;
     position: relative;
 }
 .project2 {
+    width: 450px;
     position: relative;
     right: 200px;
 }
