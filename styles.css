@@ -43,11 +43,9 @@ header h1 {
 .experience {
     position: relative;
     width: 100%;
-    display: flex;
-    justify-content: space-between; 
-    flex-wrap: wrap; 
     margin: 20px;
     font-size: 20px;
+    left: 50px;
 }
 .project1 {
     top: 60px;
