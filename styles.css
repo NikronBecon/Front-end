@@ -43,5 +43,9 @@ header h1 {
     display: flex;
     justify-content: space-between; 
     flex-wrap: wrap; 
+    margin: 20px;
 }
-
+.project1 {
+    position: relative;
+    right: 50%;
+}
