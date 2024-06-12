@@ -48,9 +48,8 @@ header h1 {
     margin: 20px;
 }
 .h2 {
+    left: 20px;
     text-align: center;
-    margin: 20px;
-    margin-left: 50px;
 }
 .project1 {
     position: absolute;
