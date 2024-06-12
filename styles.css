@@ -46,6 +46,7 @@ header h1 {
     margin: 20px;
 }
 .project1 {
+    width: 200px;
     position: relative;
     left: 50%;
 }
