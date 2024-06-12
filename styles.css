@@ -39,19 +39,14 @@ header h1 {
     height: auto; 
     margin: 30px;
 }
-.experience-section {
-    padding: 20px;
-    background: #fff;
-}
-.experience-section h2 {
-    text-align: left;
-    color: #333;
-    margin-bottom: 10px;
-}
 .experience {
     display: flex;
     justify-content: space-between; 
     flex-wrap: wrap; 
+}
+.project {
+    width: 48%;
+    margin-bottom: 20px;
 }
 .project h3 {
     margin-bottom: 5px;
