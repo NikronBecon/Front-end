@@ -49,8 +49,11 @@ header h1 {
     margin: 20px;
 }
 .project1 {
+    position: relative;
     width: 450px;
 }
 .project2 {
+    position: absolute;
+    right: -50px;
     width: 450px;
 }
