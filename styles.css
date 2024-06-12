@@ -43,13 +43,11 @@ header h1 {
     display: flex;
     justify-content: space-between; 
     flex-wrap: wrap; 
+    margin: 200px;
 }
 .project1 {
     width: 450px;
-    position: relative;
 }
 .project2 {
     width: 450px;
-    right: 200px;
-    left: 500px;
 }
