@@ -43,7 +43,10 @@ header h1 {
     display: flex;
     justify-content: space-between; 
     flex-wrap: wrap; 
-    margin: 200px;
+    margin: 20px;
+}
+.h2 {
+    margin: 20px;
 }
 .project1 {
     width: 450px;
