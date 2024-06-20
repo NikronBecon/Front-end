@@ -6,14 +6,18 @@ body {
     background-color: #f4f4f4;
     color: #333;
 }
-header {
+
+#first{
     background: #333;
     color: #fff;
     padding: 10px 0;
     text-align: center;
 }
-header h1 {
+header h1{
     margin: 0;
+}
+#second{
+    margin-left: 40px;
 }
 .social {
     text-align: center;
@@ -41,21 +45,20 @@ header h1 {
     margin: 30px;
 }
 .experience {
-    position: relative;
+    display: flex;
     width: 100%;
-    margin: 20px;
     font-size: 20px;
-    left: 50px;
+    justify-content: space-between;
+    flex-direction: row;
 }
 .project1 {
-    top: 60px;
-    position: absolute;
-    left: 0px;
-    width: 450px;
+    margin-left: 40px;
+    flex: 1
 }
 .project2 {
-    top: 60px;
-    position: absolute;
-    left: 500px;
-    width: 450px;
+    flex: 1
+}
+#XKCD {
+    display: flex;
+    margin: 40px;
 }
