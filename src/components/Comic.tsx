@@ -1,5 +1,7 @@
-import React from "react";
+"use client"
+import React, { useState, useEffect } from "react";
 import { formatDistanceStrict } from "date-fns";
+import Image from "next/image";
 
 interface ComicProps {
     email: string;
@@ -21,64 +23,50 @@ interface ComicStates {
     imageLive: string;
 }
 
-class Comic extends React.Component<ComicProps, ComicStates> {
-    constructor(props: ComicProps) {
-        super(props);
-        this.state = {
-            month: "",
-            num: "",
-            link: "",
-            year: "",
-            news: "",
-            safe_title: "",
-            transcript: "",
-            alt: "",
-            img: "",
-            title: "",
-            day: "",
-            date: "",
-            imageLive: ""
+const Comic: React.FC<ComicProps> = ({ email }) => {
+    const [state, setState] = useState<ComicStates>({
+        month: "",
+        num: "",
+        link: "",
+        year: "",
+        news: "",
+        safe_title: "",
+        transcript: "",
+        alt: "",
+        img: "",
+        title: "",
+        day: "",
+        date: "",
+        imageLive: ""
+    });
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const id = await getComicId(email);
+                const data = await getComicImage(id);
+                setState({
+                    ...data,
+                    date: `${data.day}-${data.month}-${data.year}`,
+                    imageLive: await getImageLifetime(new Date(parseInt(data.year), parseInt(data.month) - 1, parseInt(data.day)))
+                });
+            } catch (error) {
+                console.error("Error fetching comic data:", error);
+            }
         };
-    }
 
-    componentDidMount() {
-        this.handleSubmit();
-    }
+        fetchData();
+    }, [email]);
 
-    handleSubmit = async () => {
-        const email = this.props.email;
-        try {
-            const id = await getComicId(email);
-            const data = await getComicImage(id);
-            this.setState({
-                alt: data.alt,
-                img: data.img,
-                safe_title: data.safe_title,
-                day: data.day,
-                month: data.month,
-                year: data.year
-            });
-            const date = new Date(parseInt(data.year), parseInt(data.month) - 1, parseInt(data.day));
-            const formattedDate: string = date.toLocaleDateString();
-            this.setState({ date: formattedDate });
-            const imageLive = await getImageLifetime(date);
-            this.setState({ imageLive: imageLive });
-        } catch (error) {
-            console.error("Error fetching comic data:", error);
-        }
-    };
-
-    render() {
-        return (
-            <div className="XKCDimage">
-                <img src={this.state.img} id="XKCDimg" alt={this.state.alt} />
-                <p id="imageTitle">{this.state.safe_title}</p>
-                <p id="imageDate">{this.state.date}</p>
-                <p id="imageLive">{"It was published " + this.state.imageLive + " ago."}</p>
-            </div>
-        );
-    }
-}
+    return (
+        <div className="XKCDimage">
+            <img src={state.img} id="XKCDimg" alt={state.alt} />
+            <p id="imageTitle">{state.safe_title}</p>
+            <p id="imageDate">{state.date}</p>
+            <p id="imageLive">{"It was published " + state.imageLive + " ago."}</p>
+        </div>
+    );
+};
 
 async function getComicImage(id: number): Promise<ComicStates> {
     const urlImage = new URL("https://fwd.innopolis.university/api/comic");

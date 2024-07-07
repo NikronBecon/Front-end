@@ -1,42 +1,35 @@
-// XKCD.js
-import React from "react";
+// XKCD.tsx
+"use client"
+import React, { useState } from "react";
 import Comic from "./Comic";
 
-interface XKCDstates {
-    pressed: boolean;
-    email: string;
-}
-interface XKCDprops{
+const XKCD: React.FC = () => {
+    const [pressed, setPressed] = useState<boolean>(false);
+    const [email, setEmail] = useState<string>('');
 
-}
-
-class XKCD extends React.Component<XKCDprops, XKCDstates> {
-    constructor(props : XKCDprops) {
-        super(props);
-        this.state = {
-            pressed: false,
-            email: '',
-        };
-    }
-
-    handleButtonClick= () => {
-        this.setState({ pressed: true });
+    const handleButtonClick = () => {
+        setPressed(true);
     };
 
-    render() {
-        return (
-            <div className="XKCDcomic">
-                <div id="XKCDform">
-                    <form id="emailForm">
-                        <label htmlFor="email">Email:</label>
-                        <input type="email" id="email" name="email" required onChange={(e) => this.setState({ email: e.target.value })} />
-                        <button onClick={this.handleButtonClick} type="button">Get an image</button>
-                    </form>
-                </div>
-                {this.state.pressed ? <Comic email={this.state.email}></Comic> : null}
+    return (
+        <div className="XKCDcomic">
+            <div id="XKCDform">
+                <form id="emailForm">
+                    <label htmlFor="email">Email:</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <button onClick={handleButtonClick} type="button">Get an image</button>
+                </form>
             </div>
-        );
-    }
-}
+            {pressed && <Comic email={email}></Comic>}
+        </div>
+    );
+};
 
 export default XKCD;
