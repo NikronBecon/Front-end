@@ -1,38 +1,36 @@
-name: Deploy Next.js site to GitHub Pages
+name: CI/CD Pipeline for Next.js
 
 on:
   push:
-    branches: ["main"]
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+    branches:
+      - main # Change this to your default branch if not 'main'
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+    - uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
+    - name: Use Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14 # Adjust the Node.js version according to your project
 
-      - name: Install dependencies
-        run: npm ci
+    - name: Install Dependencies
+      run: npm ci
 
-      - name: Build with Next.js
-        run: npm run build
+    - name: Lint and Format
+      run: npx lint-staged && npm run lint
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
+    - name: Build
+      run: npm run build || exit 1
+
+    - name: Export
+      run: npm run export || exit 1
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./out
