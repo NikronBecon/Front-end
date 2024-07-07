@@ -1,0 +1,36 @@
+name: CI/CD Pipeline for Next.js
+
+on:
+  push:
+    branches:
+      - main # Change this to your default branch if not 'main'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14 # Adjust the Node.js version according to your project
+
+    - name: Install Dependencies
+      run: npm ci
+
+    - name: Lint and Format
+      run: npx lint-staged && npm run lint
+
+    - name: Build
+      run: npm run build || exit 1
+
+    - name: Export
+      run: npm run export || exit 1
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./out
