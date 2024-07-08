@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import tgIcon from "/img/TelegramIcon.png"
-import gmailIcon from "/img/GmailIcon.png"
-import gitIcon from "/img/GitHubIcon.png"
+import tgIcon from "./img/TelegramIcon.png"
+import gmailIcon from "./img/GmailIcon.png"
+import gitIcon from "./img/GitHubIcon.png"
 
 
 const Header: React.FC = () => {
