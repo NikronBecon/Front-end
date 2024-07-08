@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { formatDistanceStrict } from "date-fns";
 import Image from "next/image";
 
+
 interface ComicProps {
     email: string;
 }
@@ -60,7 +61,7 @@ const Comic: React.FC<ComicProps> = ({ email }) => {
 
     return (
         <div className="XKCDimage">
-            <img src={state.img} id="XKCDimg" alt={state.alt} />
+            <Image src={state.img} id="XKCDimg" alt={state.alt}/>
             <p id="imageTitle">{state.safe_title}</p>
             <p id="imageDate">{state.date}</p>
             <p id="imageLive">{"It was published " + state.imageLive + " ago."}</p>
