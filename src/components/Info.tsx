@@ -1,14 +1,13 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import photo from "./img/Photo.jpg"
 
 // Assuming there are no props passed to this component, we don't need to define an interface for them.
 const Info: React.FC = () => {
   return (
     <div>
       <div className="summary">
-        <Image src={photo} alt="Me" />
+        <Image src="/Photo.jpg" alt="Me" />
         <p>
           I am fond of maths and informatics. Adore exploring something new in
           every sphere. I have results in the Olympiads and the experience of
