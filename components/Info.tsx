@@ -1,9 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import photo from "../public/Photo.jpg"
-
-
+import photo from "../public/Photo.jpg";
 
 const Info: React.FC = () => {
   return (

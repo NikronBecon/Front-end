@@ -1,7 +1,6 @@
 import Header from "../components/Header";
 import Info from "../components/Info";
-import XKCD from "../components/XKCD"
-
+import XKCD from "../components/XKCD";
 
 export default function Home() {
   return (
