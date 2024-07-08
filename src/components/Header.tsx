@@ -1,6 +1,10 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import tgIcon from "/img/TelegramIcon.png"
+import gmailIcon from "/img/GmailIcon.png"
+import gitIcon from "/img/GitHubIcon.png"
+
 
 const Header: React.FC = () => {
   return (
@@ -8,13 +12,13 @@ const Header: React.FC = () => {
       <h1>Nikita Tsukanov</h1>
       <div className="social">
         <a href="https://t.me/Nikron_Becon" id="tg-link">
-          <Image src="/img/TelegramIcon.png" alt="Telegram" />
+          <Image src={tgIcon} alt="Telegram" />
         </a>
         <a href="mailto:nikronbecon@gmail.com" id="email">
-          <Image src="/img/GmailIcon.png" alt="Gmail" />
+          <Image src={gmailIcon} alt="Gmail" />
         </a>
         <a href="https://github.com/NikronBecon" id="gh-link">
-          <Image src="/img/GitHubIcon.png" alt="Github" />
+          <Image src={gitIcon} alt="Github" />
         </a>
       </div>
     </header>
