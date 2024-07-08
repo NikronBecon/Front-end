@@ -14,7 +14,7 @@ const Header: React.FC = () => {
           <Image src={tg} alt="Telegram"></Image>
         </a>
         <a href="mailto:nikronbecon@gmail.com" id="email">
-          <Image src={gmail} alt="Gmail" />
+          <Image src="../public/GmailIcon.jpg" alt="Gmail" />
         </a>
         <a href="https://github.com/NikronBecon" id="gh-link">
           <Image src={git} alt="Github" />
