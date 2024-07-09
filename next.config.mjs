@@ -1,15 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    output: 'export',
     images: {
-        domains: ['imgs.xkcd.com'],
-        remotePatterns: [
-            {
-                protocol: 'https',
-                hostname: 'imgs.xkcd.com',
-                port: '',
-                pathname: '/comics/**',
-            },
-        ],
+        loader: 'default',
+        unoptimized: true,
     },
 };
 
