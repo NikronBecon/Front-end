@@ -66,7 +66,7 @@ const Comic: React.FC<ComicProps> = ({ email }) => {
 
   return (
     <div className="XKCDimage">
-      <Image src={state.img} id="XKCDimg" alt={state.alt} width={558} height={206}/>
+      <img src={state.img} id="XKCDimg" alt={state.alt}/>
       <p id="imageTitle">{state.safe_title}</p>
       <p id="imageDate">{state.date}</p>
       <p id="imageLive">{"It was published " + state.imageLive + " ago."}</p>
