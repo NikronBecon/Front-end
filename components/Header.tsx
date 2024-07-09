@@ -1,27 +1,24 @@
-"use client";
-import React from "react";
-import Image from "next/image";
-import tg from "../public/TelegramIcon.png"
-import gmail from "../public/GmailIcon.png"
-import git from "../public/GitHubIcon.jpg"
+import Link from 'next/link';
 
-const Header: React.FC = () => {
-  return (
-    <header id="first">
-      <h1>Nikita Tsukanov</h1>
-      <div className="social">
-        <a href="https://t.me/Nikron_Becon" id="tg-link">
-          <Image src={tg} alt="Telegram"></Image>
-        </a>
-        <a href="mailto:nikronbecon@gmail.com" id="email">
-          <Image src={gmail} alt="Gmail" />
-        </a>
-        <a href="https://github.com/NikronBecon" id="gh-link">
-          <Image src={git} alt="Github" />
-        </a>
-      </div>
-    </header>
-  );
+
+const Header = () => {
+    return (
+        <header>
+            <div className="Title">My Portfolio</div>
+            <nav>
+                <button>
+                    <Link href="/">
+                        <a>Home</a>
+                    </Link>
+                </button>
+                <button>
+                    <Link href="/xkcd">
+                        <a>XKCD</a>
+                    </Link>
+                </button>
+            </nav>
+        </header>
+    );
 };
 
 export default Header;

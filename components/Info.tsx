@@ -18,11 +18,6 @@ const Info: React.FC = () => {
           backend to make my own startup.
         </p>
       </div>
-      <header id="second">
-        <h2>
-          <u>Experience</u>
-        </h2>
-      </header>
       <div className="experience">
         <div className="project1">
           <h3>Azimov lab</h3>
