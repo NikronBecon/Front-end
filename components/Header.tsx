@@ -8,12 +8,12 @@ const Header = () => {
             <nav>
                 <button>
                     <Link href="/">
-                        <a>Home</a>
+                        Home
                     </Link>
                 </button>
                 <button>
                     <Link href="/xkcd">
-                        <a>XKCD</a>
+                        XKCD
                     </Link>
                 </button>
             </nav>
