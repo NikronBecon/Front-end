@@ -7,7 +7,7 @@ const Info: React.FC = () => {
   return (
     <div>
       <div className="summary">
-        <Image src={photo} alt="Me" />
+        <Image src={photo} alt="Me" width={960} height={1280}/>
         <p>
           I am fond of maths and informatics. Adore exploring something new in
           every sphere. I have results in the Olympiads and the experience of
