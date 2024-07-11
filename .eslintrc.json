@@ -1,6 +1,7 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": ["next/core-web-vitals", "plugin:eslint-plugin-prettier/recommended", "prettier"],
   "rules": {
+    "prettier/prettier": "error",
     "@next/next/no-img-element": "off"
   }
 }
