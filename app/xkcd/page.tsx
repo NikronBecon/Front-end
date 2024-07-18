@@ -1,5 +1,9 @@
-import Comic from "@/components/Comic";
+import XKCD from "@/components/XKCD";
 
 export default function Home() {
-  return <Comic></Comic>;
+  return (
+    <main>
+      <XKCD></XKCD>
+    </main>
+  );
 }

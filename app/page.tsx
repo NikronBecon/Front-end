@@ -1,11 +1,9 @@
 import Info from "../components/Info";
 
-const Home: React.FC = () => {
+export default function Home() {
   return (
     <main>
-      <Info />
+      <Info></Info>
     </main>
   );
-};
-
-export default Home;
+}

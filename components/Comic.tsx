@@ -1,4 +1,10 @@
+"use client";
+import React, { useState, useEffect } from "react";
 import { formatDistanceStrict } from "date-fns";
+
+interface ComicProps {
+  email: string;
+}
 
 interface ComicStates {
   month: string;
@@ -16,26 +22,56 @@ interface ComicStates {
   imageLive: string;
 }
 
-export default async function Comic(): Promise<React.JSX.Element> {
-  const email = "n.tsukanov@innopolis.university";
-  const id = await getComicId(email as string);
-  const data = await getComicImage(id);
-  const date = `${data.day}-${data.month}-${data.year}`;
-  const imageLive = await getImageLifetime(
-    new Date(parseInt(data.year), parseInt(data.month) - 1, parseInt(data.day)),
-  );
-  const img = data.img;
-  const alt = data.alt;
-  const safe_title = data.safe_title;
+const Comic: React.FC<ComicProps> = ({ email }) => {
+  const [state, setState] = useState<ComicStates>({
+    month: "",
+    num: "",
+    link: "",
+    year: "",
+    news: "",
+    safe_title: "",
+    transcript: "",
+    alt: "",
+    img: "",
+    title: "",
+    day: "",
+    date: "",
+    imageLive: "",
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const id = await getComicId(email);
+        const data = await getComicImage(id);
+        setState({
+          ...data,
+          date: `${data.day}-${data.month}-${data.year}`,
+          imageLive: await getImageLifetime(
+            new Date(
+              parseInt(data.year),
+              parseInt(data.month) - 1,
+              parseInt(data.day),
+            ),
+          ),
+        });
+      } catch (error) {
+        console.error("Error fetching comic data:", error);
+      }
+    };
+
+    fetchData();
+  }, [email]);
+
   return (
     <div className="XKCDimage">
-      <img src={img} id="XKCDimg" alt={alt} />
-      <p id="imageTitle">{safe_title}</p>
-      <p id="imageDate">{date}</p>
-      <p id="imageLive">{"It was published " + imageLive + " ago."}</p>
+      <img src={state.img} id="XKCDimg" alt={state.alt} />
+      <p id="imageTitle">{state.safe_title}</p>
+      <p id="imageDate">{state.date}</p>
+      <p id="imageLive">{"It was published " + state.imageLive + " ago."}</p>
     </div>
   );
-}
+};
 
 async function getComicImage(id: number): Promise<ComicStates> {
   const urlImage = new URL("https://fwd.innopolis.university/api/comic");
@@ -70,3 +106,5 @@ async function getImageLifetime(date: Date): Promise<string> {
   const relativeTime = formatDistanceStrict(now, date);
   return relativeTime;
 }
+
+export default Comic;
