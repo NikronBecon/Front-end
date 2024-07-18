@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
         <Image src={gmail} alt="Gmail" />
       </a>
       <a href="https://github.com/NikronBecon" id="gh-link">
-        <Image src={git} alt="Github" />
+        <Image src={git} alt="Git" />
       </a>
     </footer>
   );
